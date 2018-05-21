@@ -1,43 +1,35 @@
-import Component from '@ember/component';
+import Base from '../button-base';
 import layout from '../../templates/components/types/yahoo-cal';
 import {get} from '@ember/object';
-import moment, { duration } from 'moment';
+import moment from 'moment';
 
 export default Base.extend({
   layout,
   baseUrl: 'http://calendar.yahoo.com/?v=60&view=d&type=20',
-  generateHref({st = '', dur = '', in_loc = '', title = '', desc = ''}) {
-    var eventDur = duration / 60 * 1000;
-    var eventDuration = ((endTime.getTime() - startTime.getTime()) / 60 * 1000);
+  generateHref({startTime = '', endTime = '', duration = '', location = '', title = '', description = ''}) {
+    if (!moment.isMoment(startTime)) {
+      startTime = moment(startTime);
+    }
+    if (!moment.isMoment(endTime)) {
+      endTime = moment(endTime);
+    }
 
-    // Yahoo dates are crazy, we need to convert the duration from minutes to hh:mm
-    var yahooHourDuration = eventDuration < 600 ? '0' + Math.floor((eventDuration / 60)) : Math.floor((eventDuration / 60)) + '';
+    duration = duration / (60 * 1000);
 
-    var yahooMinuteDuration = eventDuration % 60 < 10 ? '0' + eventDuration % 60 : eventDuration % 60 + '';
+    const yahooHourDuration = duration < 600 ? '0' + Math.floor((duration / 60)) : Math.floor((duration / 60)) + '';
+    const yahooMinuteDuration = duration % 60 < 10 ? '0' + duration % 60 : duration % 60 + '';
+    const yahooEventDuration = yahooHourDuration + yahooMinuteDuration;
 
-    dur = yahooHourDuration + yahooMinuteDuration;
-
-      // Remove timezone from event time
-    st = formatTime(new Date(startTime - (startTime.getTimezoneOffset() * 60 * 1000))) || '';
-
-    // if (!moment.isMoment(startTime)) {
-    //   st = moment(startTime);
-    // }
-    // if (!moment.isMoment(endTime)) {
-    //   endTime = moment(endTime);
-    // }
-    // let start = startTime.format('YYYYMMDDTHHmmss');
-    // let end = endTime.format('YYYYMMDDTHHmmss');
+    let start = startTime.utc().toISOString().replace(/-|:|\.\d+/g, '');
 
     let data = {
-      ST: st,
-      DUR: dur,
-      DESC: desc,
-      Title: title,
-      in_loc: in_loc,
-      ctz: 'UK/London'
+      title: title,
+      st: `${start}`,
+      dur: `${yahooEventDuration}`,
+      desc: description,
+      in_loc: location
     }
     let string = this._toQString(data)
-    return encodeURI(`${get(this, 'baseUrl')}?${string}`)
+    return encodeURI(`${get(this, 'baseUrl')}?${string}&sf=true&output=xml`)
   }
 });

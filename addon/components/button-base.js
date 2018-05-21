@@ -59,7 +59,7 @@ export default Component.extend({
     let start = get(this, 'startTime'),
         end = get(this, 'endTime');
 
-    return start.diff(end);
+    return end.diff(start);
   }),
 
   // Must Implment by exented component

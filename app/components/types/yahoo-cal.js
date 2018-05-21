@@ -1,1 +1,1 @@
-export { default } from 'ember-add-calendar-button/components/types/yahoo-cal';
+export { default } from 'ember-calendar-button/components/types/yahoo-cal';
