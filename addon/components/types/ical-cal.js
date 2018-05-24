@@ -23,8 +23,8 @@ export default Base.extend({
     if (!moment.isMoment(endTime)) {
       endTime = moment(endTime);
     }
-    let start = startTime.format('YYYYMMDDTHHmmss');
-    let end = endTime.format('YYYYMMDDTHHmmss');
+    let start = startTime.local(true).format('YYYYMMDDTHHmmss');
+    let end = endTime.local(true).format('YYYYMMDDTHHmmss');
 
     let text = [
           'BEGIN:VCALENDAR',

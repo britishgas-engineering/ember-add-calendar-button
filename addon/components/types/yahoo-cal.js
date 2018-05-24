@@ -5,7 +5,7 @@ import moment from 'moment';
 
 export default Base.extend({
   layout,
-  baseUrl: 'http://calendar.yahoo.com/?v=60&view=d&type=20',
+  baseUrl: 'http://calendar.yahoo.com/',
   generateHref({startTime = '', endTime = '', duration = '', location = '', title = '', description = ''}) {
     if (!moment.isMoment(startTime)) {
       startTime = moment(startTime);
@@ -23,6 +23,9 @@ export default Base.extend({
     let start = startTime.toISOString().replace(/-|:|\.\d+/g, '');
 
     let data = {
+      v:60,
+      view:`d`,
+      type:20,
       title: title,
       st: `${start}`,
       dur: `${yahooEventDuration}`,

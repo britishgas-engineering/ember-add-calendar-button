@@ -14,8 +14,8 @@ export default Base.extend({
     if (!moment.isMoment(endTime)) {
       endTime = moment(endTime);
     }
-    let start = startTime.local().format('YYYYMMDDTHHmmss');
-    let end = endTime.local().format('YYYYMMDDTHHmmss');
+    let start = startTime.format('YYYYMMDDTHHmmss');
+    let end = endTime.format('YYYYMMDDTHHmmss');
 
     let data = {
       dates: `${start}/${end}`,
