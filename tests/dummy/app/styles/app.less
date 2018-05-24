@@ -1,7 +1,7 @@
 & {
     .calendar-button {
         font-family: 'BGFlame', Arial;
-        padding: 6px 20px 6px 20px;
+        padding: 6px 25px 6px 25px;
         color: #0C96FF;
         border: 1px solid #0C96FF;
         -webkit-border-radius: 50px;
@@ -16,12 +16,14 @@
         cursor: pointer;
     }
     .cal-export-content {
-        margin-top: 7px;
+        margin-top: 6px;
         display: none;
         position: absolute;
+        border: 1px solid #0C96FF;
         background-color: #f9f9f9;
         box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
         z-index: 1;
+        padding: 10px;
     }
     .cal-export-content a {
         font-size: 10px;
@@ -33,7 +35,6 @@
     .cal-export-content a:hover {background-color: #f1f1f1}
     
     .calendar-button:hover .cal-export-content {
-        margin-top: 7px;
         display: block;
     }
     .calendar-button:hover {
