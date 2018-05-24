@@ -14,15 +14,15 @@ export default Base.extend({
     if (!moment.isMoment(endTime)) {
       endTime = moment(endTime);
     }
-    let start = startTime.format('YYYYMMDDTHHmmss');
-    let end = endTime.format('YYYYMMDDTHHmmss');
+    let start = startTime.local().format('YYYYMMDDTHHmmss');
+    let end = endTime.local().format('YYYYMMDDTHHmmss');
 
     let data = {
       dates: `${start}/${end}`,
       details: description,
       text: title,
       location: location,
-      ctz: 'UK/London'
+      ctz: 'Europe/London'
     }
     let string = this._toQString(data)
     return encodeURI(`${get(this, 'baseUrl')}?${string}&sf=true&output=xml`)

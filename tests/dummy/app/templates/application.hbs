@@ -1,16 +1,19 @@
 <h2 id="title">Add To Calendar Button</h2>
 
 {{#calendar-button event as |b|}}
+  {{#b.apple}}
+    Apple calendar
+  {{/b.apple}}
   {{#b.google}}
-    Add To Goolge
+    Google (online)
   {{/b.google}}
+   {{#b.ical}}
+    Outlook
+  {{/b.ical}}
+  {{#b.outlook}}
+    Outlook (online)
+  {{/b.outlook}}
   {{#b.yahoo}}
     Add To Yahoo
   {{/b.yahoo}}
-  {{#b.outlook}}
-    Add To Outlook
-  {{/b.outlook}}
-  {{#b.ical}}
-    Add to Anything
-  {{/b.ical}}
 {{/calendar-button}}

@@ -2,8 +2,7 @@ import Component from '@ember/component';
 import layout from '../templates/components/button-base';
 import moment from 'moment';
 import {assert} from '@ember/debug';
-import {get, getWithDefault, computed} from '@ember/object';
-import {alias} from '@ember/object/computed';
+import {get, computed} from '@ember/object';
 
 export default Component.extend({
   layout,
@@ -37,12 +36,12 @@ export default Component.extend({
   },
   //Properties
   startTime: computed(function() {
-    let start = get(this, 'event.start');
+    let start = get(this, 'event.start').toLocaleString('en-GB', { timeZone: 'UTC' });
     return (moment.isMoment(start)) ? start : moment(start);
   }),
   endTime: computed('event', function() {
     let start = get(this, 'startTime');
-    let end = get(this, 'event.end') || false;
+    let end = get(this, 'event.end') ? get(this, 'event.end').toLocaleString('en-GB', { timeZone: 'UTC' }) : false;
 
     if (end) {
       return (moment.isMoment(end)) ? end : moment(end);
@@ -65,6 +64,10 @@ export default Component.extend({
   // Must Implment by exented component
   // Should return encodeURI()'d string
   generateHref({start, duration, location, description}) {
+    assert('start is undefined', !start);
+    assert('duration is undefined', !duration);
+    assert('location is undefined', !location);
+    assert('description is undefined', !description);
     assert('Please BYO method in subclass', false);
   },
   /**
