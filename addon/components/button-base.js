@@ -13,7 +13,7 @@ export default Component.extend({
   attributeBindings: ['href', 'target'],
   tagName: 'a',
   target: '_blank',
-  href: computed('event', function() {
+  href: computed('event', function () {
     let event = get(this, 'event');
     let args = {
       startTime: get(this, 'startTime'),
@@ -35,11 +35,11 @@ export default Component.extend({
     get(this, 'onClick')(event);
   },
   //Properties
-  startTime: computed(function() {
+  startTime: computed(function () {
     let start = get(this, 'event.start').toLocaleString('en-GB', { timeZone: 'UTC' });
     return (moment.isMoment(start)) ? start : moment(start);
   }),
-  endTime: computed('event', function() {
+  endTime: computed('event', function () {
     let start = get(this, 'startTime');
     let end = get(this, 'event.end') ? get(this, 'event.end').toLocaleString('en-GB', { timeZone: 'UTC' }) : false;
 
@@ -50,7 +50,7 @@ export default Component.extend({
     return start.add(90, 'minutes');
   }),
 
-  duration: computed('event', 'startTime', 'endTime', function() {
+  duration: computed('event', 'startTime', 'endTime', function () {
     if (get(this, 'event.duration')) {
       return get(this, 'event.duration');
     }
