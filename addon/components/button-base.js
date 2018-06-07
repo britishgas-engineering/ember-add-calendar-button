@@ -21,6 +21,7 @@ export default Component.extend({
       endTime: get(this, 'endTime'),
       location: get(event, 'location'),
       description: get(event, 'description'),
+      plainDescription: get(event, 'plainDescription'),
       title: get(event, 'title')
     };
 
@@ -63,12 +64,12 @@ export default Component.extend({
 
   // Must Implment by exented component
   // Should return encodeURI()'d string
-  generateHref({start, duration, location, description}) {
+  generateHref({start, duration, location, description, plainDescription}) {
     assert('start is undefined', !start);
     assert('duration is undefined', !duration);
     assert('location is undefined', !location);
     assert('description is undefined', !description);
-    assert('Please BYO method in subclass', false);
+    assert('plainDescription is undefined', !plainDescription);
   },
   /**
    * Convert object to querystring

@@ -6,7 +6,7 @@ import moment from 'moment';
 export default Base.extend({
   layout,
   baseUrl: 'http://calendar.yahoo.com/',
-  generateHref({startTime = '', endTime = '', duration = '', location = '', title = '', description = ''}) {
+  generateHref({startTime = '', endTime = '', duration = '', location = '', title = '', plainDescription = ''}) {
     if (!moment.isMoment(startTime)) {
       startTime = moment(startTime);
     }
@@ -29,7 +29,7 @@ export default Base.extend({
       title: title,
       st: `${start}`,
       dur: `${yahooEventDuration}`,
-      desc: description,
+      desc: plainDescription,
       in_loc: location
     }
     let string = this._toQString(data)
