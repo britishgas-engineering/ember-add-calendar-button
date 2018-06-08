@@ -10,13 +10,13 @@ const doc = document || {URL: false}
 export default Base.extend({
   layout,
   attributeBindings: ['download'],
-  download: computed('event', function() {
+  download: computed('event', function () {
     let title = `${get(this, 'event.title')}-${get(this, 'startTime').format('YYYY-MM-DD')}`
     let safe = dasherize(title)
     return `${safe
     }.ics`;
   }),
-  generateHref({startTime = '', endTime = '', location = '', title = '', description = ''}){
+  generateHref({startTime = '', endTime = '', location = '', title = '', plainDescription = ''}){
     if (!moment.isMoment(startTime)) {
       startTime = moment(startTime);
     }
@@ -39,7 +39,7 @@ export default Base.extend({
           `DTSTART;TZID=Europe/London:${start}`,
           `DTEND;TZID=Europe/London:${end}`,
           `SUMMARY:${title}`,
-          `DESCRIPTION:${description}`,
+          `DESCRIPTION:${plainDescription}`,
           `LOCATION:${location}`,
           'END:VEVENT',
           'END:VCALENDAR'
