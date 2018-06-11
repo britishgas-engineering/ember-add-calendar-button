@@ -26,13 +26,13 @@ export default Base.extend({
       v:60,
       view:`d`,
       type:20,
-      title: title,
+      title: encodeURIComponent(title),
       st: `${start}`,
       dur: `${yahooEventDuration}`,
-      desc: plainDescription.replace('\\n', '\n'),
-      in_loc: location
+      desc: encodeURIComponent(plainDescription),
+      in_loc: encodeURIComponent(location)
     }
     let string = this._toQString(data)
-    return encodeURI(`${get(this, 'baseUrl')}?${string}&sf=true&output=xml`)
+    return `${encodeURI(get(this, 'baseUrl'))}?${string}&sf=true&output=xml`
   }
 });

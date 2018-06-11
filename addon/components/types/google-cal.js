@@ -19,12 +19,12 @@ export default Base.extend({
 
     let data = {
       dates: `${start}/${end}`,
-      details: description,
-      text: title,
-      location: location,
+      details: encodeURIComponent(description),
+      text: encodeURIComponent(title),
+      location: encodeURIComponent(location),
       ctz: 'Europe/London'
     }
     let string = this._toQString(data)
-    return encodeURI(`${get(this, 'baseUrl')}?${string}&sf=true&output=xml`)
+    return `${encodeURI(get(this, 'baseUrl'))}?${string}&sf=true&output=xml`
   }
 });

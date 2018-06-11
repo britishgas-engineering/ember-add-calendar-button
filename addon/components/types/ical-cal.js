@@ -39,7 +39,7 @@ export default Base.extend({
           `DTSTART;TZID=Europe/London:${start}`,
           `DTEND;TZID=Europe/London:${end}`,
           `SUMMARY:${title}`,
-          `DESCRIPTION:${plainDescription}`,
+          `DESCRIPTION:${plainDescription.replace('\n', '\\n')}`,
           `LOCATION:${location}`,
           'END:VEVENT',
           'END:VCALENDAR'
