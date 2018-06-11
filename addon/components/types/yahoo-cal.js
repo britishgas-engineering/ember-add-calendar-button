@@ -29,7 +29,7 @@ export default Base.extend({
       title: title,
       st: `${start}`,
       dur: `${yahooEventDuration}`,
-      desc: plainDescription,
+      desc: plainDescription.replace('\\n', '\n'),
       in_loc: location
     }
     let string = this._toQString(data)
