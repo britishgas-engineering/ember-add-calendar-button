@@ -37,12 +37,12 @@ export default Component.extend({
   },
   //Properties
   startTime: computed(function () {
-    let start = get(this, 'event.start').toLocaleString('en-GB', { timeZone: 'UTC' });
+    let start = get(this, 'event.start');
     return (moment.isMoment(start)) ? start : moment(start);
   }),
   endTime: computed('event', function () {
     let start = get(this, 'startTime');
-    let end = get(this, 'event.end') ? get(this, 'event.end').toLocaleString('en-GB', { timeZone: 'UTC' }) : false;
+    let end = get(this, 'event.end') ? get(this, 'event.end') : false;
 
     if (end) {
       return (moment.isMoment(end)) ? end : moment(end);
