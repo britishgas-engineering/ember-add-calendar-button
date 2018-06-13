@@ -34,8 +34,6 @@ export default Base.extend({
           'TZID:Europe/London',
           'END:VTIMEZONE',
           'BEGIN:VEVENT',
-          'URL:' + doc.URL,
-
           `DTSTART;TZID=Europe/London:${start}`,
           `DTEND;TZID=Europe/London:${end}`,
           `SUMMARY:${title}`,
