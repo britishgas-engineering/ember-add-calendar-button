@@ -14,9 +14,8 @@ const Button = Component.extend({
   }
 });
 
-
 Button.reopenClass({
   positionalParams: ['event']
-})
+});
 
 export default Button;
