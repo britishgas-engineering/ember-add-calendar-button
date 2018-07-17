@@ -23,8 +23,8 @@ export default Base.extend({
       text: encodeURIComponent(title),
       location: encodeURIComponent(location),
       ctz: 'Europe/London'
-    }
-    let string = this._toQString(data)
-    return `${encodeURI(get(this, 'baseUrl'))}?${string}&sf=true&output=xml`
+    };
+    let string = this._toQString(data);
+    return `${encodeURI(get(this, 'baseUrl'))}?${string}&sf=true&output=xml`;
   }
 });
