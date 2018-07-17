@@ -1,7 +1,7 @@
 {
   "name": "ember-add-calendar-button",
-  "version": "0.0.4",
-  "description": "Create a link to add Google, iCal, and Outlook calendar entries",
+  "version": "0.0.1",
+  "description": "Create a link to add Yahoo, Google, iCal, and Outlook calendar entries",
   "keywords": [
     "ember-addon"
   ],
@@ -11,7 +11,7 @@
     "doc": "doc",
     "test": "tests"
   },
-  "repository": "donaldwasserman/ember-add-calendar-button",
+  "repository": "github:ConnectedHomes/ember-add-calendar-button",
   "scripts": {
     "build": "ember build",
     "start": "ember server",
