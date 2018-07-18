@@ -14,8 +14,8 @@ export default Component.extend({
   tagName: 'a',
   target: '_blank',
   href: computed('event', function () {
-    let event = get(this, 'event');
-    let args = {
+    const event = get(this, 'event');
+    const args = {
       startTime: get(this, 'startTime'),
       duration: get(this, 'duration'),
       endTime: get(this, 'endTime'),
@@ -37,12 +37,12 @@ export default Component.extend({
   },
   //Properties
   startTime: computed(function () {
-    let start = get(this, 'event.start');
+    const start = get(this, 'event.start');
     return moment.isMoment(start) ? start : moment(start);
   }),
   endTime: computed('event', function () {
-    let start = get(this, 'startTime');
-    let end = get(this, 'event.end') ? get(this, 'event.end') : false;
+    const start = get(this, 'startTime');
+    const end = get(this, 'event.end') ? get(this, 'event.end') : false;
 
     if (end) {
       return moment.isMoment(end) ? end : moment(end);
@@ -56,8 +56,8 @@ export default Component.extend({
       return get(this, 'event.duration');
     }
 
-    let start = get(this, 'startTime'),
-      end = get(this, 'endTime');
+    const start = get(this, 'startTime');
+    const end = get(this, 'endTime');
 
     return end.diff(start);
   }),
@@ -77,8 +77,8 @@ export default Component.extend({
    * @returns {string} all key value pairs joined in to a string
    */
   _toQString(props) {
-    let keys = Object.keys(props);
-    let pairs = keys.map((x) => {
+    const keys = Object.keys(props);
+    const pairs = keys.map((x) => {
       return x + '=' + props[x];
     });
 

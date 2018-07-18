@@ -13,7 +13,7 @@ const Event = EmberObject.extend({
 });
 
 export default Controller.extend({
-  event: computed(function() {
+  event: computed(function () {
     return Event.create();
   }),
   pojoEvent: {
