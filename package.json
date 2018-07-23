@@ -1,7 +1,7 @@
 {
   "name": "ember-add-calendar-button",
-  "version": "0.0.4",
-  "description": "Create a link to add Google, iCal, and Outlook calendar entries",
+  "version": "0.0.1",
+  "description": "Create a link to add Yahoo, Google, iCal, and Outlook calendar entries",
   "keywords": [
     "ember-addon"
   ],
@@ -11,12 +11,20 @@
     "doc": "doc",
     "test": "tests"
   },
-  "repository": "donaldwasserman/ember-add-calendar-button",
+  "repository": "github:ConnectedHomes/ember-add-calendar-button",
   "scripts": {
     "build": "ember build",
     "start": "ember server",
-    "test": "ember try:each"
+    "test": "ember try:each",
+    "postinstall": "ember g eslint-rules",
+    "precommit": "lint-staged"
   },
+  "lint-staged": {
+    "*.js": [
+      "./node_modules/eslint/bin/eslint.js --fix",
+      "git add"
+    ]
+   },
   "dependencies": {
     "ember-cli-babel": "^6.6.0",
     "ember-cli-htmlbars": "^2.0.1",
@@ -41,11 +49,14 @@
     "ember-cli-sri": "^2.1.0",
     "ember-cli-uglify": "^2.0.0",
     "ember-disable-prototype-extensions": "^1.1.2",
+    "ember-eslint": "github:connectedhomes/ember-webapps-eslint-rules#0.0.3",
     "ember-export-application-global": "^2.0.0",
     "ember-load-initializers": "^1.0.0",
     "ember-resolver": "^4.0.0",
     "ember-source": "~2.16.0",
     "eslint-plugin-ember": "^5.2.0",
+    "husky": "^0.14.3",
+    "lint-staged": "^7.1.3",
     "loader.js": "^4.2.3"
   },
   "engines": {

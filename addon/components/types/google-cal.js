@@ -14,17 +14,17 @@ export default Base.extend({
     if (!moment.isMoment(endTime)) {
       endTime = moment(endTime);
     }
-    let start = startTime.format('YYYYMMDDTHHmmss');
-    let end = endTime.format('YYYYMMDDTHHmmss');
+    const start = startTime.format('YYYYMMDDTHHmmss');
+    const end = endTime.format('YYYYMMDDTHHmmss');
 
-    let data = {
+    const data = {
       dates: `${start}/${end}`,
       details: encodeURIComponent(description),
       text: encodeURIComponent(title),
       location: encodeURIComponent(location),
       ctz: 'Europe/London'
     };
-    let string = this._toQString(data);
+    const string = this._toQString(data);
     return `${encodeURI(get(this, 'baseUrl'))}?${string}&sf=true&output=xml`;
   }
 });

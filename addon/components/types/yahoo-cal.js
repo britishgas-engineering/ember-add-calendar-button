@@ -20,9 +20,9 @@ export default Base.extend({
     const yahooMinuteDuration = duration % 60 < 10 ? '0' + duration % 60 : duration % 60 + '';
     const yahooEventDuration = yahooHourDuration + yahooMinuteDuration;
 
-    let start = startTime.toISOString().replace(/-|:|\.\d+/g, '');
+    const start = startTime.toISOString().replace(/-|:|\.\d+/g, '');
 
-    let data = {
+    const data = {
       v: 60,
       view: `d`,
       type: 20,
@@ -32,7 +32,7 @@ export default Base.extend({
       desc: encodeURIComponent(plainDescription),
       in_loc: encodeURIComponent(location)
     };
-    let string = this._toQString(data);
+    const string = this._toQString(data);
     return `${encodeURI(get(this, 'baseUrl'))}?${string}&sf=true&output=xml`;
   }
 });
