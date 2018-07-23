@@ -16,7 +16,6 @@
     "build": "ember build",
     "start": "ember server",
     "test": "ember try:each",
-    "postinstall": "ember g eslint-rules",
     "precommit": "lint-staged"
   },
   "lint-staged": {
