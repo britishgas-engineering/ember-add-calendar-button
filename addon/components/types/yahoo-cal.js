@@ -16,23 +16,23 @@ export default Base.extend({
 
     duration = duration / (60 * 1000);
 
-    const yahooHourDuration = duration < 600 ? '0' + Math.floor((duration / 60)) : Math.floor((duration / 60)) + '';
+    const yahooHourDuration = duration < 600 ? '0' + Math.floor(duration / 60) : Math.floor(duration / 60) + '';
     const yahooMinuteDuration = duration % 60 < 10 ? '0' + duration % 60 : duration % 60 + '';
     const yahooEventDuration = yahooHourDuration + yahooMinuteDuration;
 
-    let start = startTime.toISOString().replace(/-|:|\.\d+/g, '');
+    const start = startTime.toISOString().replace(/-|:|\.\d+/g, '');
 
-    let data = {
-      v:60,
-      view:`d`,
-      type:20,
+    const data = {
+      v: 60,
+      view: `d`,
+      type: 20,
       title: encodeURIComponent(title),
       st: `${start}`,
       dur: `${yahooEventDuration}`,
       desc: encodeURIComponent(plainDescription),
       in_loc: encodeURIComponent(location)
-    }
-    let string = this._toQString(data)
-    return `${encodeURI(get(this, 'baseUrl'))}?${string}&sf=true&output=xml`
+    };
+    const string = this._toQString(data);
+    return `${encodeURI(get(this, 'baseUrl'))}?${string}&sf=true&output=xml`;
   }
 });
