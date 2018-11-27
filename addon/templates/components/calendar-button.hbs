@@ -1,20 +1,19 @@
 <div class=calendar-button>
- <i class="fa fa-calendar-plus-o"></i>
- <span class="cal-title">Add to calendar</span>
- <div class="cal-export-content">
-  {{#if hasBlock}}
-    {{yield
-      (hash
-        apple=(component "types/apple-cal" event=event onClick=(action "onClick"))
-        google=(component "types/google-cal" event=event onClick=(action "onClick"))
-        yahoo=(component "types/yahoo-cal" event=event onClick=(action "onClick"))
-        outlook=(component "types/outlook-cal" event=event onClick=(action "onClick"))
-        ical=(component "types/ical-cal" event=event onClick=(action "onClick"))
-      )
-    }}
-  {{else}}
-    {{types/ical-cal event=event onClick=(action "onClick")}}
-  {{/if}}
- </div>
+  <i class="fa fa-calendar-plus-o"></i>
+  <span class="cal-title">Add to calendar</span>
+  <div class="cal-export-content">
+    {{#if hasBlock}}
+      {{yield
+        (hash
+          apple=(component "types/apple-cal" event=event onClick=(action "onClick"))
+          google=(component "types/google-cal" event=event onClick=(action "onClick"))
+          yahoo=(component "types/yahoo-cal" event=event onClick=(action "onClick"))
+          outlook=(component "types/outlook-cal" event=event onClick=(action "onClick"))
+          ical=(component "types/ical-cal" event=event onClick=(action "onClick"))
+        )
+      }}
+    {{else}}
+      {{types/ical-cal event=event onClick=(action "onClick")}}
+    {{/if}}
+  </div>
 </div>
-
