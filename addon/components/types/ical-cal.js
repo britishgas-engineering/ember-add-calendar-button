@@ -20,8 +20,8 @@ export default Base.extend({
     if (!moment.isMoment(endTime)) {
       endTime = moment(endTime);
     }
-    const start = startTime.format('YYYYMMDDTHHmmss');
-    const end = endTime.format('YYYYMMDDTHHmmss');
+    const start = startTime.tz('Europe/London').format('YYYYMMDDTHHmmss');
+    const end = endTime.tz('Europe/London').format('YYYYMMDDTHHmmss');
 
     const text = [
       'BEGIN:VCALENDAR',
