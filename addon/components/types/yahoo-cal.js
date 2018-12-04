@@ -20,7 +20,7 @@ export default Base.extend({
     const yahooMinuteDuration = duration % 60 < 10 ? '0' + duration % 60 : duration % 60 + '';
     const yahooEventDuration = yahooHourDuration + yahooMinuteDuration;
 
-    const start = startTime.toISOString().replace(/-|:|\.\d+/g, '');
+    const start = startTime.utc().toISOString().replace(/-|:|\.\d+/g, '');
 
     const data = {
       v: 60,
