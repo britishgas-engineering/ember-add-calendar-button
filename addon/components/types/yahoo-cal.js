@@ -20,8 +20,8 @@ export default Base.extend({
     const yahooMinuteDuration = duration % 60 < 10 ? '0' + duration % 60 : duration % 60 + '';
     const yahooEventDuration = yahooHourDuration + yahooMinuteDuration;
 
-    const start = startTime.utc().toISOString().replace(/-|:|\.\d+/g, '');
-
+    let start = startTime.local().toISOString().replace(/-|:|\.\d+/g, '');
+    start = start.replace('Z', '');
     const data = {
       v: 60,
       view: `d`,
