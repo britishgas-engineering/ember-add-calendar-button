@@ -22,6 +22,10 @@ export default Base.extend({
 
     let start = startTime.tz(moment.tz.guess()).toISOString().replace(/-|:|\.\d+/g, '');
     start = start.replace('Z', '');
+
+    /*eslint-disable */
+    console.log('!!!!!!!TZ', moment.tz.guess(), start);
+    /*eslint-enable */
     const data = {
       v: 60,
       view: `d`,
