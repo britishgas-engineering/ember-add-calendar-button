@@ -20,11 +20,11 @@ export default Base.extend({
     const yahooMinuteDuration = duration % 60 < 10 ? '0' + duration % 60 : duration % 60 + '';
     const yahooEventDuration = yahooHourDuration + yahooMinuteDuration;
 
-    let start = startTime.tz(moment.tz.guess()).toISOString().replace(/-|:|\.\d+/g, '');
-    start = start.replace('Z', '');
+    const start = moment.utc(startTime).toISOString().replace(/-|:|\.\d+/g, '');
+    // start = start.replace('Z', '');
 
     /*eslint-disable */
-    console.log('!!!!!!!TZ', moment.tz.guess(), start);
+    console.log('!!!!!!!UTC', moment.tz.guess(), startTime.toISOString());
     /*eslint-enable */
     const data = {
       v: 60,
