@@ -19,13 +19,8 @@ export default Base.extend({
     const yahooHourDuration = duration < 600 ? '0' + Math.floor(duration / 60) : Math.floor(duration / 60) + '';
     const yahooMinuteDuration = duration % 60 < 10 ? '0' + duration % 60 : duration % 60 + '';
     const yahooEventDuration = yahooHourDuration + yahooMinuteDuration;
-
     const start = moment.utc(startTime).toISOString().replace(/-|:|\.\d+/g, '');
-    // start = start.replace('Z', '');
 
-    /*eslint-disable */
-    console.log('!!!!!!!UTC', moment.tz.guess(), startTime.toISOString());
-    /*eslint-enable */
     const data = {
       v: 60,
       view: `d`,
