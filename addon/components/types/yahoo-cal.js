@@ -19,6 +19,10 @@ export default Base.extend({
     const yahooHourDuration = duration < 600 ? '0' + Math.floor(duration / 60) : Math.floor(duration / 60) + '';
     const yahooMinuteDuration = duration % 60 < 10 ? '0' + duration % 60 : duration % 60 + '';
     const yahooEventDuration = yahooHourDuration + yahooMinuteDuration;
+
+    // For Yahoo (online) timezones does not work as it is not using system timezone/mail settings timezone
+    // correctly, the best we can do for now is use the UTC time with the 'Z'. If this later reveals issues
+    // then we could try using startTime.toISOString directly
     const start = moment.utc(startTime).toISOString().replace(/-|:|\.\d+/g, '');
 
     const data = {
