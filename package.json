@@ -23,7 +23,7 @@
       "./node_modules/eslint/bin/eslint.js --fix",
       "git add"
     ]
-   },
+  },
   "dependencies": {
     "ember-cli-babel": "^6.6.0",
     "ember-cli-htmlbars": "^2.0.1",
