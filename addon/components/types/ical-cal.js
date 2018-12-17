@@ -20,15 +20,32 @@ export default Base.extend({
     if (!moment.isMoment(endTime)) {
       endTime = moment(endTime);
     }
-    const start = startTime.local(true).format('YYYYMMDDTHHmmss');
-    const end = endTime.local(true).format('YYYYMMDDTHHmmss');
+    const start = startTime.tz('Europe/London').format('YYYYMMDDTHHmmss');
+    const end = endTime.tz('Europe/London').format('YYYYMMDDTHHmmss');
 
     const text = [
       'BEGIN:VCALENDAR',
       'VERSION:2.0',
+      'BEGIN:VTIMEZONE',
+      'TZID:Europe/London',
+      'BEGIN:DAYLIGHT',
+      'TZOFFSETFROM:+0000',
+      'TZOFFSETTO:+0100',
+      'TZNAME:BST',
+      'DTSTART:19700329T010000',
+      'RRULE:FREQ=YEARLY;BYMONTH=3;BYDAY=-1SU',
+      'END:DAYLIGHT',
+      'BEGIN:STANDARD',
+      'TZOFFSETFROM:+0100',
+      'TZOFFSETTO:+0000',
+      'TZNAME:GMT',
+      'DTSTART:19701025T020000',
+      'RRULE:FREQ=YEARLY;BYMONTH=10;BYDAY=-1SU',
+      'END:STANDARD',
+      'END:VTIMEZONE',
       'BEGIN:VEVENT',
-      `DTSTART:${start}`,
-      `DTEND:${end}`,
+      `DTSTART;TZID=Europe/London:${start}`,
+      `DTEND;TZID=Europe/London:${end}`,
       `SUMMARY:${title}`,
       `DESCRIPTION:${plainDescription.replace('\r', '\\r').replace('\n', '\\n')}`,
       `LOCATION:${location}`,
