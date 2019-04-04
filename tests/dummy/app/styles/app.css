@@ -1,8 +1,8 @@
 .calendar-button {
     font-family: 'BGFlame', Arial;
     padding: 6px 20px 6px 20px;
-    color: #0C96FF;
-    border: 1px solid #0C96FF;
+    color: #005eb8;
+    border: 1px solid #005eb8;
     -webkit-border-radius: 50px;
     -moz-border-radius: 50px;
     border-radius: 50px;
@@ -36,6 +36,6 @@
     display: block;
 }
 .calendar-button:hover {
-    background-color: #0C96FF;
+    background-color: #005eb8;
     color: white;
 }
