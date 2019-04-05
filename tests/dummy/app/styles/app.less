@@ -1,45 +1,74 @@
+@theme-color: #005eb8;
+@theme-inverse-color: white;
+@background-color: #f9f9f9;
+@highlight-color: #f1f1f1;
+
 & {
     .calendar-button {
         font-family: 'BGFlame', Arial;
         padding: 6px 25px 6px 25px;
-        color: #0C96FF;
-        border: 2px solid #0C96FF;
+        color: @theme-color;
+        border: 2px solid @theme-color;
         -webkit-border-radius: 50px;
         -moz-border-radius: 50px;
         border-radius: 50px;
         position: relative;
         display: inline-block;
     }
-    .cal-title {
+    .calendar-button .cal-title {
         font-size: 20px;
         border: none;
         cursor: pointer;
         vertical-align: middle;
     }
-    .cal-export-content {
+    .calendar-button .cal-export-content {
         margin: 7px;
         display: none;
         position: absolute;
-        border: 1px solid #0C96FF;
-        background-color: #f9f9f9;
+        background-color: @background-color;
         box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-        z-index: 1;
+        z-index: 10;
+        border: 1px solid @theme-color;
         padding: 10px;
     }
-    .cal-export-content a {
+    .calendar-button .cal-export-content a {
         font-size: 14px;
-        color: #0C96FF;
+        color: @theme-color;
         padding: 6px;
         text-decoration: none;
-        display: inline-block;
+        display: block;
+        text-align: left;
     }
-    .cal-export-content a:hover {background-color: #f1f1f1}
-    
+    .calendar-button .cal-export-content a:hover {background-color: @highlight-color}
+
     .calendar-button:hover .cal-export-content {
         display: block;
     }
     .calendar-button:hover {
-        background-color: #0C96FF;
-        color: white;
+        background-color: @theme-color;
+        color: @theme-inverse-color;
+    }
+
+    .calendar-button .cal-export-content .app-icon {
+        height: 18px;
+        width: 14px;
+        float: left;
+        margin-right: 5px;
+        vertical-align: middle;
+    }
+    .calendar-button .cal-export-content .google-app-icon {
+        background:url('../ember-calendar-button/assets/images/google-icon.png');
+    }
+    .calendar-button .cal-export-content .apple-app-icon {
+        background:url('../ember-calendar-button/assets/images/apple-icon.png')
+    }
+    .calendar-button .cal-export-content .outlook-app-icon {
+        background:url('../ember-calendar-button/assets/images/outlook-icon.png')
+    }
+    .calendar-button .cal-export-content .yahoo-app-icon {
+        background:url('../ember-calendar-button/assets/images/yahoo-icon.png')
+    }
+    .calendar-button .cal-export-content .generic-cal-app-icon {
+        background:url('../ember-calendar-button/assets/images/outlook-icon.png')
     }
 }
