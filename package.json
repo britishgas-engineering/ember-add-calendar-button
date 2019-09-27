@@ -27,9 +27,9 @@
   "dependencies": {
     "ember-cli-babel": "^6.6.0",
     "ember-cli-htmlbars": "^2.0.1",
+    "ember-cli-less": "^2.0.1",
     "ember-moment": "^7.5.0",
-    "font-awesome": "^4.7.0",
-    "ember-cli-less": "^1.5.5"
+    "font-awesome": "^4.7.0"
   },
   "devDependencies": {
     "babel-eslint": "^8.2.6",
