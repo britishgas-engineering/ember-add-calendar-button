@@ -1,6 +1,6 @@
 {
   "name": "ember-add-calendar-button",
-  "version": "3.0.0",
+  "version": "3.1.0",
   "description": "Create a link to add Yahoo, Google, iCal, and Outlook calendar entries",
   "keywords": [
     "ember-addon"
@@ -48,13 +48,13 @@
     "ember-cli-sri": "^2.1.0",
     "ember-cli-uglify": "^2.0.0",
     "ember-disable-prototype-extensions": "^1.1.2",
-    "ember-eslint": "github:connectedhomes/ember-webapps-eslint-rules#0.0.3",
+    "ember-eslint": "github:connectedhomes/ember-webapps-eslint-rules#0.1.1",
     "ember-export-application-global": "^2.0.0",
     "ember-load-initializers": "^1.0.0",
     "ember-resolver": "^4.0.0",
     "ember-source": "~2.16.0",
     "eslint-plugin-ember": "^5.2.0",
-    "husky": "^3.0.5",
+    "husky": "^3.0.7",
     "lint-staged": "^9.4.0",
     "loader.js": "^4.2.3"
   },
