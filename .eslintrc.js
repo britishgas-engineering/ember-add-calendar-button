@@ -6,7 +6,7 @@ module.exports = {
   extends: 'eslint:recommended',
   parser: 'babel-eslint',
   parserOptions: {
-    ecmaVersion: 6,
+    ecmaVersion: 2017,
     sourceType: 'module'
   },
   plugins: [
@@ -79,7 +79,6 @@ module.exports = {
     'no-unneeded-ternary': 'warn',
     'no-nested-ternary': 'error',
     'no-whitespace-before-property': 'warn',
-    'object-curly-spacing': 'warn',
     'one-var': ['warn', 'never'],
     'one-var-declaration-per-line': 'warn',
     'operator-linebreak': ['warn', 'after'],
@@ -103,5 +102,26 @@ module.exports = {
     'space-before-function-paren': ['warn', {
        named: 'never'
     }]
-  }
+  },
+  overrides: [
+    // node files
+    {
+      files: [
+        '.template-lintrc.js',
+        'ember-cli-build.js',
+        'testem.js',
+        'blueprints/*/index.js',
+        'config/**/*.js',
+        'lib/*/index.js'
+      ],
+      parserOptions: {
+        sourceType: 'script',
+        ecmaVersion: 2015
+      },
+      env: {
+        browser: false,
+        node: true
+      }
+    }
+  ]
 };
