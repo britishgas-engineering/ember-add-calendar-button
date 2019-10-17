@@ -1,3 +1,4 @@
+/* eslint-disable no-useless-escape */
 import Component from '@ember/component';
 import layout from '../templates/components/button-base';
 import moment from 'moment';
@@ -33,6 +34,21 @@ export default Component.extend({
    * @returns {void}
    */
   click(event) {
+    // In IE, the apple calendar and outlook calender items (.ics files) are not downloaded
+    // by default but opened on a new tab with an error message.
+    // Here we check the browser and appointment type and if it's IE, stores the .ics appointment
+    // in a blob that can be downloaded
+    const isMSIE = window.navigator.userAgent.indexOf('MSIE ') > 0;
+
+    if (typeof window !== 'undefined' &&
+    event.target.hasAttribute('download') &&
+    (isMSIE || navigator.userAgent.match(/Trident.*rv\:11\./)) &&
+    window.navigator.msSaveBlob &&
+    window.Blob) {
+      const blob = new Blob([this.get('href')], { type: 'text/calendar;charset=utf-8'});
+      window.navigator.msSaveBlob(blob, this.get('download'));
+      event.preventDefault();
+    }
     get(this, 'onClick')(event);
   },
   //Properties
